@@ -16,6 +16,9 @@ public class UIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
+         * all of this should be handled differently when a player chooses a character.  this is just for testing purposes
+         */
         player1Health.maxValue = warrior_controller.maxHealth;
         player1Resource.maxValue = warrior_controller.maxRage;
         player1Health.value = warrior_controller.currentHealth;
