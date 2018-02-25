@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 13
+<<<<<<< HEAD
+  productGUID: b07d59783fbe04348908067c3c68a410
+=======
   productGUID: d2d013aaa6f80df429c96febc2aafc99
+>>>>>>> master
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -624,6 +628,14 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
+<<<<<<< HEAD
+  cloudServicesEnabled: {}
+  facebookSdkVersion: 7.9.4
+  apiCompatibilityLevel: 2
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
+=======
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
@@ -631,6 +643,7 @@ PlayerSettings:
   cloudProjectId: 20e3878b-dd0a-4bda-ab8a-925de75052f8
   projectName: Another Diablo (6)
   organizationId: jaredsc
+>>>>>>> master
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
