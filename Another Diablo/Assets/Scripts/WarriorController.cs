@@ -14,6 +14,9 @@ public class WarriorController : MonoBehaviour {
     public bool isBasicAttacking;
     public PlayerMovement player_movement;
 
+    public BoxCollider2D attackRangeLeft;
+    public BoxCollider2D attackRangeRight;
+
     //ability cooldown variables
     private float shieldBashCooldown;
     private float tauntCooldown;
@@ -22,6 +25,11 @@ public class WarriorController : MonoBehaviour {
     private float berserkerCooldown;
     private float berserkTime;
     private bool goingBerserk;
+
+    //player stats
+    public float strength;
+    public float intelligence;
+    public float luck;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +40,8 @@ public class WarriorController : MonoBehaviour {
         attackSpeed = 0.5f;
         isBasicAttacking = false;
         player_movement.speed = 5f;
+        
+        
 
         shieldBashCooldown = 0f;
         tauntCooldown = 0f;
@@ -40,6 +50,8 @@ public class WarriorController : MonoBehaviour {
         berserkerCooldown = 0f;
         berserkTime = 0f;
         goingBerserk = false;
+
+        strength = 5f;
 
 		
 	}
@@ -65,9 +77,24 @@ public class WarriorController : MonoBehaviour {
             {
                 isBasicAttacking = true;
                 //Debug.Log("basic attack");
+                if(player_movement.lastDirection > 0) // looking right
+                {
+                    attackRangeRight.gameObject.SetActive(true);
+                    //attackRange.transform.position += new Vector3(1f, 0f, 0f);
+                }
+                else if(player_movement.lastDirection < 0) // looking left
+                {
+                    attackRangeLeft.gameObject.SetActive(true);
+                    //attackRange.transform.position += new Vector3(-1f, 0f, 0f);
+                }
+                //attackRange.transform.position = new Vector3(0f, 0f, 0f);
                 currentRage += 3;
                 yield return new WaitForSeconds(attackSpeed); // how long to wait before the next attack can be done
                 isBasicAttacking = false;
+                
+                attackRangeRight.gameObject.SetActive(false);
+                attackRangeLeft.gameObject.SetActive(false);
+
 
             }
         }

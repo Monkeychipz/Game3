@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D rb2d;
     public float speed;
     public bool stunned; // turning stunned true and false can be handled in the respective player controllers (and duration)
-
+    public float lastDirection;
     void Start() {
         //currenthealth = health;
         rb2d = GetComponent<Rigidbody2D>();
@@ -18,8 +18,15 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         if (!stunned) // not stunned
         {
-            PlayerRotation();
+            //PlayerRotation();
             rb2d.transform.position += new Vector3(Input.GetAxis("Left Joystick Horizontal"), -Input.GetAxis("Left Joystick Vertical"), 0) * Time.deltaTime * speed;
+            if (Input.GetAxis("Left Joystick Horizontal") < 0){
+                lastDirection = Input.GetAxis("Left Joystick Horizontal");
+            }
+            else if(Input.GetAxis("Left Joystick Horizontal") > 0)
+            {
+                lastDirection = Input.GetAxis("Left Joystick Horizontal");
+            }
         }
         // stunned
         // will not be able to move
