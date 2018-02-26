@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WarriorController : MonoBehaviour {
+    // this class needs to be abstracted later for utilization with other classes
     // class that utilizes the general Player Movement script 
     // set a speed for the player in the Start() 
     public float maxHealth;
@@ -57,7 +58,7 @@ public class WarriorController : MonoBehaviour {
 
     private IEnumerator BasicAttack()
     {
-        if (Input.GetAxis("Triggers") == 1)
+        if (Input.GetAxis("Left Trigger") == 1 || Input.GetAxis("Right Trigger") == 1)
         //if(Input.GetButton("Cancel")) // placeholder until i have access to a controller
         {
             if (!isBasicAttacking)
@@ -176,4 +177,17 @@ public class WarriorController : MonoBehaviour {
             Debug.Log("You DIED");
         }
     }
+
+    public void HurtPlayer(float damage)
+    {
+        currentHealth -= damage;
+    }
+
+    //public void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        HurtPlayer(collision.gameObject.GetComponent<ChasePlayer>().damage);
+    //    }
+    //}
 }
